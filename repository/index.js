@@ -1,9 +1,9 @@
 class Repository {
-    constructor(){
+    constructor() {
        this.data = [];
    }
 
-    insert(user){
+    insert(user) {
         this.data.push(user);
     }
 
@@ -11,6 +11,10 @@ class Repository {
         return this.data.find(user => user.id === id)
     }
 
+    remove(id) {
+       const findId = this.data.findIndex(x => x.id === id)
+       return this.data.splice(findId, 1)
+    }
 
 };
 

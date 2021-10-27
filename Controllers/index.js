@@ -40,13 +40,21 @@ module.exports = {
     },
 
     update(req, res){
-        let getUserID = req.param.id
+        let getUserID = req.body.id
         const result = repo.select(getUserID)
         const obj = req.body
+
         if(!result) {
-            repo.splice(getUserID, obj)
+            res.send("Não foi possível completar a sua requisição")
+        } else {
+            result.name = obj.name;
+            result.age = obj.age;
+            result.email = obj.email;
+
+            console.log("Update feito com sucesso")
             res.send(obj)
         }
+       
 
     }
 }

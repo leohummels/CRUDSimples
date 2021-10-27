@@ -5,19 +5,9 @@ const controller = require('../Controllers');
 
 router.get('/user', controller.get);
 
-
-/*router.get('/', (req, res) => {
-    console.log("get all")
-    return res.send(".GET de usuários")
-}); */
-
-
 router.post('/user', controller.post);
 
-router.put('/update' , (req,res) => {
-    console.log('update')
-    return res.send(".UPDATE")
-});
+router.put('/put' , controller.update);
 
 router.delete('/user' , controller.delete);
 
